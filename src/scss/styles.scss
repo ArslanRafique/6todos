@@ -1,0 +1,61 @@
+body,html{
+    background-color: #009688;
+}
+ul.todo-list{
+    padding: 0px;
+    list-style-type: none;
+    
+    li{
+        list-style-type: none;
+        
+        .panel{
+            border: none;
+            background-color: transparent;
+            color: #ffffff;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+    }
+}
+
+.navbar.navbar-custom-style{
+    background-color: #00695C;
+    border: none;
+    color: #EDE7F6;
+    height: 100px;
+}
+
+.row {
+    &.container-row{
+        margin-top: 120px;
+    }
+}
+
+.todo-input{
+    background-color: transparent;
+    border: transparent;
+    box-shadow: none;
+    color: #ffffff;
+    border-bottom: solid 1px #ffffff;
+    
+    &:focus{
+       -webkit-box-shadow: none;
+       box-shadow: none; 
+       border-bottom: solid 1px #cccccc;
+    }
+    
+    &::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+        color:    #fff;
+    }
+    &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+        color:    #fff;
+        opacity:  1;
+    }
+    &::-moz-placeholder { /* Mozilla Firefox 19+ */
+        color:    #fff;
+        opacity:  1;
+    }
+    &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color:    #fff;
+    }
+}
