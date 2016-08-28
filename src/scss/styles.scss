@@ -7,14 +7,60 @@ ul.todo-list{
     
     li{
         list-style-type: none;
-        
+        position: relative;
+         /* Fallback for web browsers that don't support RGBa */
+        background-color: rgb(0, 105, 92);
+        /* RGBa with 0.6 opacity */
+        background-color: rgba(0, 105, 92, 0.28);
+        /* For IE 5.5 - 7*/
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+        /* For IE 8*/
+        -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+
         .panel{
             border: none;
             background-color: transparent;
             color: #ffffff;
             -webkit-box-shadow: none;
             box-shadow: none;
+            
+            .panel-body{
+                padding-left: 63px;
+            }
         }
+        
+        span{
+            position: absolute;
+            padding: 16px;
+            background-color: #673AB7;
+            box-sizing: border-box;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            color: #fff;
+            font-weight: 800;
+        }
+        
+        .delete-icon{
+            display: none;
+            position: absolute;
+            padding: 16px;
+            background-color: #F50057;
+            box-sizing: border-box;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            color: #fff;
+            font-weight: 800;
+            right: 0px;
+            top: 0px;
+        }
+        
+         &:hover .delete-icon{
+            display: block;
+
+        }
+        
     }
 }
 
@@ -58,4 +104,8 @@ ul.todo-list{
     &:-ms-input-placeholder { /* Internet Explorer 10-11 */
         color:    #fff;
     }
+}
+
+.hide{
+    display: none;
 }

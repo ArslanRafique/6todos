@@ -32,6 +32,25 @@ export default class Layout extends React.Component {
         {todos: todos}
       );
   }
+    
+  removeTodo(todo){
+      
+      Array.prototype.remove = function(index){
+        this.splice(index,1);
+      }
+      
+      const todos = this.state.todos;
+      for(var i=0; i<todos.length; i++){
+          if(todos[i].id == todo){
+              todos.remove(i);
+          }
+      }
+      
+      this.setState(
+        {todos: todos}
+      );
+      
+  }
 
   render() {
 //      setTimeout(() => {
@@ -43,7 +62,7 @@ export default class Layout extends React.Component {
     return (
       <div class="row container-row">
         <Header changeTitle={this.changeTitle.bind(this)} title={this.state.title} />
-        <Todolist todos={this.state.todos} addTodo={this.addTodo.bind(this)}/>
+        <Todolist todos={this.state.todos} addTodo={this.addTodo.bind(this)} removeTodo={this.removeTodo.bind(this)}/>
         <Footer />
       </div>
     );

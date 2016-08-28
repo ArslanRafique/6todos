@@ -11,12 +11,44 @@ export default class Todolist extends React.Component
         }
     }
     
+    hideElement(todos){
+        if(this.props.todos.length>6){
+            return 'hide'
+        }
+        return '';
+    }
+    
+    removeTodo(todo){
+        this.props.removeTodo(todo);
+    }
+    
+    
     render() {
-        const todos = this.props.todos.map(function(todo){
+        var hideElement = {
+          display : 'none' 
+        };
+        
+        var self = this;
+        var index = 0;
+        var todos = this.props.todos.map(function(todo){
+            index++;
             return (
-                <Todo key={todo.id} text={todo.text} />
+                <Todo removeTodo={self.removeTodo.bind(self)} id={todo.id} key={todo.id} num={index} text={todo.text} />
             )
         });
+        
+        if(todos.length < 7){
+            hideElement = {
+                display: 'block'
+            }
+        }
+        else{
+            hideElement = {
+                display: 'none'
+            }
+        }
+        
+        
         
         return (
             <div>
@@ -24,9 +56,7 @@ export default class Todolist extends React.Component
                     {todos}
                 </ul>
                 <div className="form-group">
-                    <input className="form-control todo-input" type="text" onKeyPress={this.getTodoText.bind(this)} placeholder="Add something amazing to do..."/>
-        
-
+                    <input className="form-control todo-input" type="text" onKeyPress={this.getTodoText.bind(this)} placeholder="Add something amazing to do..." style={hideElement}/>
                 </div>
             </div>
         );
