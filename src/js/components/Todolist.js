@@ -30,6 +30,7 @@ export default class Todolist extends React.Component
         
         var self = this;
         var index = 0;
+        console.log(this.props.todos);
         var todos = this.props.todos.map(function(todo){
             index++;
             return (
@@ -37,7 +38,7 @@ export default class Todolist extends React.Component
             )
         });
         
-        if(todos.length < 7){
+        if(todos.length < 6){
             hideElement = {
                 display: 'block'
             }

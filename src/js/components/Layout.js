@@ -7,12 +7,19 @@ import Todolist from "./Todolist";
 export default class Layout extends React.Component {
   constructor() {
     super();
+    var todos = localStorage.getItem( 'todos' ) || 1;
+    if(todos == 1){
+        todos = [];
+    }
+    else{
+        todos = JSON.parse(todos);
+    }
+      
     this.state = {
         title: "Welcome",
-        todos: [{id: 1, text:'Think'},
-                {id: 2, text: 'Code'},
-                {id: 3, text: 'Repeat'}]
+        todos: todos
     };
+      
   }
 
   changeTitle(title) {
@@ -31,6 +38,9 @@ export default class Layout extends React.Component {
       this.setState(
         {todos: todos}
       );
+      
+      
+      localStorage.setItem( 'todos', JSON.stringify(todos));
   }
     
   removeTodo(todo){
@@ -50,8 +60,10 @@ export default class Layout extends React.Component {
         {todos: todos}
       );
       
+      localStorage.setItem( 'todos', JSON.stringify(todos));
+      
   }
-
+    
   render() {
 //      setTimeout(() => {
 //          this.setState({todos: [

@@ -65,10 +65,15 @@ ul.todo-list{
 }
 
 .navbar.navbar-custom-style{
-    background-color: #00695C;
+    background-color: #00796B;
     border: none;
     color: #EDE7F6;
     height: 100px;
+    
+    h1{
+        font-size: 55px;
+        font-weight: 400;
+    }
 }
 
 .row {
