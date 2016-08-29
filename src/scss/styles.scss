@@ -39,8 +39,8 @@ ul.todo-list{
             padding: 16px;
             background-color: #673AB7;
             box-sizing: border-box;
-            width: 50px;
-            height: 50px;
+            width: 51px;
+            height: 51px;
             text-align: center;
             color: #fff;
             font-weight: 800;
@@ -52,8 +52,8 @@ ul.todo-list{
             padding: 16px;
             
             box-sizing: border-box;
-            width: 50px;
-            height: 50px;
+            width: 51px;
+            height: 51px;
             text-align: center;
             color: #fff;
             font-weight: 800;
@@ -63,7 +63,7 @@ ul.todo-list{
         
         .delete-icon{
             @extend .custom-icon;
-            background-color: #F50057;
+            background-color: #B71C1C;
         }
         
          &:hover .delete-icon{
@@ -73,7 +73,7 @@ ul.todo-list{
         
         .done-icon{
             @extend .custom-icon;
-            right: 50px;
+            right: 51px;
             background-color: #0091EA;
         }
         
@@ -119,6 +119,11 @@ ul.todo-list{
 .row {
     &.container-row{
         margin-top: 120px;
+        
+        h1.done-h1{
+            color: #fff;
+            text-align: center;
+        }
     }
 }
 

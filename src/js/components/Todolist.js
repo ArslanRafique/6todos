@@ -12,7 +12,6 @@ export default class Todolist extends React.Component
         this.props.doneTodo(todo);
     }
     
-    
     render() {
         var hideElement = {
           display : 'none' 
@@ -39,14 +38,11 @@ export default class Todolist extends React.Component
             )
         });
         
-
-        
         return (
             <div>
                 <ul className="todo-list">
                     {todos}
                 </ul>
-
             </div>
         );
     }

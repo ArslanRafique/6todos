@@ -81,11 +81,30 @@ export default class Layout extends React.Component {
       localStorage.setItem( 'todos', JSON.stringify(todos));
       
   }
+    
+  doneTodo(todo){
+      
+      var todos = this.state.todos;
+      for(var i=0; i<todos.length; i++){
+          if(todos[i].id == todo){
+              todos[i].done = true;
+          }
+      }
+      
+      this.setState(
+        {todos: todos}
+      );
+      
+      localStorage.setItem( 'todos', JSON.stringify(todos));
+      
+  }
 
   getTodoText(e) {
     if(e.charCode == 13 || e.keyCode == 13){
         const text = e.target.value;
-        this.addTodo(text); 
+        if(text != undefined && text != ''){
+            this.addTodo(text);   
+        }
         e.target.value = '';
     }
   }
@@ -94,22 +113,41 @@ export default class Layout extends React.Component {
     if(this.state.todos.length < 6){
         this.hideElement = {
         display: 'block'
-        }
+        };
+        
+        
+
     }
     else{
         this.hideElement = {
         display: 'none'
-        }
+        };
     }
+    var self = this;
+    self.hideDones = {
+        display: 'none'
+    }
+    
+    this.state.todos.forEach(function(todo){
+        console.log(todo.done);
+        if(todo.done == true){
+            self.hideDones = {
+                display: 'block'
+            } 
+        }
+
+    });
       
     return (
       <div class="row container-row">
         <Header changeTitle={this.changeTitle.bind(this)} title={this.state.title} />
         <Todolist todos={this.state.todos} addTodo={this.addTodo.bind(this)} removeTodo={this.removeTodo.bind(this)} doneTodo={this.doneTodo.bind(this)} todoType={'pending'}/>
         <div className="form-group">
-            <input className="form-control todo-input" type="text" onKeyPress={this.getTodoText.bind(this)} placeholder="Add something amazing to do..." style={this.hideElement}/>
+            <textarea className="form-control todo-input" type="text" onKeyPress={this.getTodoText.bind(this)} placeholder="Add something amazing to do..." style={this.hideElement}></textarea>
         </div>
-        <Todolist todos={this.state.todos} addTodo={this.addTodo.bind(this)} removeTodo={this.removeTodo.bind(this)} doneTodo={this.doneTodo.bind(this)} todoType={'done'}/>
+        <h1 className="done-h1" style={this.hideDones}>Done</h1>
+        <hr style={this.hideDones}></hr>
+        <Todolist todos={this.state.todos} addTodo={this.addTodo.bind(this)} removeTodo={this.removeTodo.bind(this)} doneTodo={this.doneTodo.bind(this)} todoType={'done'} style={this.hideDones}/>
         <Footer />
       </div>
     );
