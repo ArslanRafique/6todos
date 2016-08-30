@@ -26,7 +26,7 @@
   "scripts": {
     "dev": "./node_modules/.bin/webpack-dev-server --content-base src --inline --hot",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "NODE_ENV=production node_modules/.bin/webpack && mkdir dist && cp src/index.html dist/index.html && cp src/client.min.js dist/"
+    "build": "NODE_ENV=production node_modules/.bin/webpack && mkdir dist && cp src/index.html dist/index.html && cp src/client.min.js dist/ && cp -r src/img dist/"
   },
   "author": "",
   "license": "ISC"
