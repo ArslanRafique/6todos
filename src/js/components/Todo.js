@@ -32,8 +32,8 @@ export default class Todo extends React.Component {
                         {this.props.text}
                     </div>
                 </div>
-                <div onClick={this.doneTodo.bind(this)} className="done-icon">&#10003;</div>
-                <div onClick={this.removeTodo.bind(this)} className="delete-icon">X</div>
+                <div onClick={this.doneTodo.bind(this)} className="done-icon"><img src="img/tick.svg"></img></div>
+                <div onClick={this.removeTodo.bind(this)} className="delete-icon"><img src="img/delete.svg"></img></div>
             </li>
         );
     }

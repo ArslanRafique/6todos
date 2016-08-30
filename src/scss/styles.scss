@@ -64,22 +64,38 @@ ul.todo-list{
         .delete-icon{
             @extend .custom-icon;
             background-color: #B71C1C;
+            
+            img{
+                width: 24px;
+                height: auto;
+            }
+            
+            &:hover{
+                background-color: #9c1414;
+            }
         }
         
          &:hover .delete-icon{
             display: block;
-
         }
         
         .done-icon{
             @extend .custom-icon;
             right: 51px;
             background-color: #0091EA;
+            
+            img{
+                width: 24px;
+                height: auto;
+            }
+            
+            &:hover{
+                background-color: #118cd8;
+            }
         }
         
          &:hover .done-icon{
             display: block;
-
         }
         
     
